@@ -72,4 +72,17 @@ class StatsTable extends Table
 
         return $validator;
     }
+
+    /**
+     * Format Data for save
+     *
+     * @param array $pokeApiData Data from Poke Api
+     * @return \App\Model\Entity\Stat
+     */
+    public function formatDataForSave($pokeApiData)
+    {
+        return $this->findOrCreate([
+            'name' => $pokeApiData['name'],
+        ]);
+    }
 }

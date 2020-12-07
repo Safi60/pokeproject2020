@@ -15,7 +15,7 @@
                     <th><?= $this->Paginator->sort('name') ?></th>
                     <th><?= $this->Paginator->sort('height') ?></th>
                     <th><?= $this->Paginator->sort('weight') ?></th>
-                    <th><?= $this->Paginator->sort('default_front_stripe_url') ?></th>
+                    <th><?= $this->Paginator->sort('default_front_sprite_url') ?></th>
                     <th><?= $this->Paginator->sort('created') ?></th>
                     <th><?= $this->Paginator->sort('modified') ?></th>
                     <th class="actions"><?= __('Actions') ?></th>
@@ -28,7 +28,7 @@
                     <td><?= h($pokemon->name) ?></td>
                     <td><?= $this->Number->format($pokemon->height) ?></td>
                     <td><?= $this->Number->format($pokemon->weight) ?></td>
-                    <td><?= h($pokemon->default_front_stripe_url) ?></td>
+                    <td><?= h($pokemon->default_front_sprite_url) ?></td>
                     <td><?= h($pokemon->created) ?></td>
                     <td><?= h($pokemon->modified) ?></td>
                     <td class="actions">

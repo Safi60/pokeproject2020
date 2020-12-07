@@ -11,9 +11,8 @@ use Cake\Validation\Validator;
 /**
  * PokemonTypes Model
  *
- * @property \App\Model\Table\PokemonTable&\Cake\ORM\Association\BelongsTo $Pokemon
+ * @property \App\Model\Table\PokemonTable&\Cake\ORM\Association\BelongsTo $Pokemons
  * @property \App\Model\Table\TypesTable&\Cake\ORM\Association\BelongsTo $Types
- *
  * @method \App\Model\Entity\PokemonType newEmptyEntity()
  * @method \App\Model\Entity\PokemonType newEntity(array $data, array $options = [])
  * @method \App\Model\Entity\PokemonType[] newEntities(array $data, array $options = [])
@@ -27,7 +26,6 @@ use Cake\Validation\Validator;
  * @method \App\Model\Entity\PokemonType[]|\Cake\Datasource\ResultSetInterface saveManyOrFail(iterable $entities, $options = [])
  * @method \App\Model\Entity\PokemonType[]|\Cake\Datasource\ResultSetInterface|false deleteMany(iterable $entities, $options = [])
  * @method \App\Model\Entity\PokemonType[]|\Cake\Datasource\ResultSetInterface deleteManyOrFail(iterable $entities, $options = [])
- *
  * @mixin \Cake\ORM\Behavior\TimestampBehavior
  */
 class PokemonTypesTable extends Table
@@ -48,7 +46,7 @@ class PokemonTypesTable extends Table
 
         $this->addBehavior('Timestamp');
 
-        $this->belongsTo('Pokemon', [
+        $this->belongsTo('Pokemons', [
             'foreignKey' => 'pokemon_id',
             'joinType' => 'INNER',
         ]);
@@ -82,9 +80,29 @@ class PokemonTypesTable extends Table
      */
     public function buildRules(RulesChecker $rules): RulesChecker
     {
-        $rules->add($rules->existsIn(['pokemon_id'], 'Pokemon'), ['errorField' => 'pokemon_id']);
+        $rules->add($rules->existsIn(['pokemon_id'], 'Pokemons'), ['errorField' => 'pokemon_id']);
         $rules->add($rules->existsIn(['type_id'], 'Types'), ['errorField' => 'type_id']);
 
         return $rules;
+    }
+
+    /**
+     * Format Data for save
+     *
+     * @param array $pokeApiData Data from Poke Api
+     * @return array
+     */
+    public function formatDataForSave($pokeApiData)
+    {
+        return collection($pokeApiData)
+            ->map(function ($type) {
+                $typeEntity = $this->Types->formatDataForSave($type['type']);
+
+                return [
+                    'type_id' => $typeEntity->id,
+                    'type' => $typeEntity,
+                ];
+            })
+            ->toArray();
     }
 }

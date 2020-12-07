@@ -19,7 +19,7 @@ class PokemonTypesController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['Pokemon', 'Types'],
+            'contain' => ['Pokemons', 'Types'],
         ];
         $pokemonTypes = $this->paginate($this->PokemonTypes);
 
@@ -36,7 +36,7 @@ class PokemonTypesController extends AppController
     public function view($id = null)
     {
         $pokemonType = $this->PokemonTypes->get($id, [
-            'contain' => ['Pokemon', 'Types'],
+            'contain' => ['Pokemons', 'Types'],
         ]);
 
         $this->set(compact('pokemonType'));
@@ -59,7 +59,7 @@ class PokemonTypesController extends AppController
             }
             $this->Flash->error(__('The pokemon type could not be saved. Please, try again.'));
         }
-        $pokemon = $this->PokemonTypes->Pokemon->find('list', ['limit' => 200]);
+        $pokemon = $this->PokemonTypes->Pokemons->find('list', ['limit' => 200]);
         $types = $this->PokemonTypes->Types->find('list', ['limit' => 200]);
         $this->set(compact('pokemonType', 'pokemon', 'types'));
     }
@@ -85,7 +85,7 @@ class PokemonTypesController extends AppController
             }
             $this->Flash->error(__('The pokemon type could not be saved. Please, try again.'));
         }
-        $pokemon = $this->PokemonTypes->Pokemon->find('list', ['limit' => 200]);
+        $pokemon = $this->PokemonTypes->Pokemons->find('list', ['limit' => 200]);
         $types = $this->PokemonTypes->Types->find('list', ['limit' => 200]);
         $this->set(compact('pokemonType', 'pokemon', 'types'));
     }

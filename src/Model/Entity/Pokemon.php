@@ -12,7 +12,7 @@ use Cake\ORM\Entity;
  * @property string $name
  * @property int $height
  * @property int $weight
- * @property string $default_front_stripe_url
+ * @property string $default_front_sprite_url
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
  *
@@ -31,13 +31,7 @@ class Pokemon extends Entity
      * @var array
      */
     protected $_accessible = [
-        'name' => true,
-        'height' => true,
-        'weight' => true,
-        'default_front_stripe_url' => true,
-        'created' => true,
-        'modified' => true,
-        'pokemon_stats' => true,
-        'pokemon_types' => true,
+        '*' => true,
+        'id' => false,
     ];
 }

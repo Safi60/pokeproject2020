@@ -19,7 +19,7 @@ class PokemonStatsController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['Pokemon', 'Stats'],
+            'contain' => ['Pokemons', 'Stats'],
         ];
         $pokemonStats = $this->paginate($this->PokemonStats);
 
@@ -36,7 +36,7 @@ class PokemonStatsController extends AppController
     public function view($id = null)
     {
         $pokemonStat = $this->PokemonStats->get($id, [
-            'contain' => ['Pokemon', 'Stats'],
+            'contain' => ['Pokemons', 'Stats'],
         ]);
 
         $this->set(compact('pokemonStat'));
@@ -59,7 +59,7 @@ class PokemonStatsController extends AppController
             }
             $this->Flash->error(__('The pokemon stat could not be saved. Please, try again.'));
         }
-        $pokemon = $this->PokemonStats->Pokemon->find('list', ['limit' => 200]);
+        $pokemon = $this->PokemonStats->Pokemons->find('list', ['limit' => 200]);
         $stats = $this->PokemonStats->Stats->find('list', ['limit' => 200]);
         $this->set(compact('pokemonStat', 'pokemon', 'stats'));
     }
@@ -85,7 +85,7 @@ class PokemonStatsController extends AppController
             }
             $this->Flash->error(__('The pokemon stat could not be saved. Please, try again.'));
         }
-        $pokemon = $this->PokemonStats->Pokemon->find('list', ['limit' => 200]);
+        $pokemon = $this->PokemonStats->Pokemons->find('list', ['limit' => 200]);
         $stats = $this->PokemonStats->Stats->find('list', ['limit' => 200]);
         $this->set(compact('pokemonStat', 'pokemon', 'stats'));
     }

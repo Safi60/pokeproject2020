@@ -27,9 +27,7 @@ class Type extends Entity
      * @var array
      */
     protected $_accessible = [
-        'name' => true,
-        'created' => true,
-        'modified' => true,
-        'pokemon_types' => true,
+        '*' => true,
+        'id' => false,
     ];
 }

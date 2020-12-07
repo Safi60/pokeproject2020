@@ -11,7 +11,7 @@ use Cake\Validation\Validator;
 /**
  * PokemonStats Model
  *
- * @property \App\Model\Table\PokemonTable&\Cake\ORM\Association\BelongsTo $Pokemon
+ * @property \App\Model\Table\PokemonTable&\Cake\ORM\Association\BelongsTo $Pokemons
  * @property \App\Model\Table\StatsTable&\Cake\ORM\Association\BelongsTo $Stats
  *
  * @method \App\Model\Entity\PokemonStat newEmptyEntity()
@@ -44,7 +44,7 @@ class PokemonStatsTable extends Table
         $this->setDisplayField('id');
         $this->setPrimaryKey('id');
 
-        $this->belongsTo('Pokemon', [
+        $this->belongsTo('Pokemons', [
             'foreignKey' => 'pokemon_id',
             'joinType' => 'INNER',
         ]);
@@ -83,9 +83,30 @@ class PokemonStatsTable extends Table
      */
     public function buildRules(RulesChecker $rules): RulesChecker
     {
-        $rules->add($rules->existsIn(['pokemon_id'], 'Pokemon'), ['errorField' => 'pokemon_id']);
+        $rules->add($rules->existsIn(['pokemon_id'], 'Pokemons'), ['errorField' => 'pokemon_id']);
         $rules->add($rules->existsIn(['stat_id'], 'Stats'), ['errorField' => 'stat_id']);
 
         return $rules;
+    }
+
+    /**
+     * Format Data for save
+     *
+     * @param array $pokeApiData Data from Poke Api
+     * @return array
+     */
+    public function formatDataForSave($pokeApiData)
+    {
+        return collection($pokeApiData)
+            ->map(function ($stat) {
+                $statEntity = $this->Stats->formatDataForSave($stat['stat']);
+
+                return [
+                    'value' => $stat['base_stat'],
+                    'stat_id' => $statEntity->id,
+                    'stat' => $statEntity,
+                ];
+            })
+            ->toArray();
     }
 }

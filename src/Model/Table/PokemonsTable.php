@@ -50,9 +50,11 @@ class PokemonsTable extends Table
 
         $this->hasMany('PokemonStats', [
             'foreignKey' => 'pokemon_id',
+            'saveStrategy' => 'replace',
         ]);
         $this->hasMany('PokemonTypes', [
             'foreignKey' => 'pokemon_id',
+            'saveStrategy' => 'replace',
         ]);
     }
 
@@ -85,11 +87,33 @@ class PokemonsTable extends Table
             ->notEmptyString('weight');
 
         $validator
-            ->scalar('default_front_stripe_url')
-            ->maxLength('default_front_stripe_url', 255)
-            ->requirePresence('default_front_stripe_url', 'create')
-            ->notEmptyString('default_front_stripe_url');
+            ->scalar('default_front_sprite_url')
+            ->maxLength('default_front_sprite_url', 255)
+            ->requirePresence('default_front_sprite_url', 'create')
+            ->notEmptyString('default_front_sprite_url');
 
         return $validator;
+    }
+
+    /**
+     * Format Data for save
+     *
+     * @param array $pokeApiData Data from Poke Api
+     * @return array
+     */
+    public function formatDataForSave($pokeApiData)
+    {
+        $pokemonStats = $this->PokemonStats->formatDataForSave($pokeApiData['stats']);
+        $pokemonTypes = $this->PokemonTypes->formatDataForSave($pokeApiData['types']);
+
+        return [
+            'pokedex_number' => $pokeApiData['id'],
+            'name' => $pokeApiData['name'],
+            'default_front_sprite_url' => $pokeApiData['sprites']['front_default'],
+            'height' => $pokeApiData['height'],
+            'weight' => $pokeApiData['weight'],
+            'pokemon_stats' => $pokemonStats,
+            'pokemon_types' => $pokemonTypes,
+        ];
     }
 }

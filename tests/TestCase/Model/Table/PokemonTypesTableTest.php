@@ -25,7 +25,7 @@ class PokemonTypesTableTest extends TestCase
      */
     protected $fixtures = [
         'app.PokemonTypes',
-        'app.Pokemon',
+        'app.Pokemons',
         'app.Types',
     ];
 

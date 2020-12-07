@@ -23,8 +23,8 @@
                     <td><?= h($pokemon->name) ?></td>
                 </tr>
                 <tr>
-                    <th><?= __('Default Front Stripe Url') ?></th>
-                    <td><?= h($pokemon->default_front_stripe_url) ?></td>
+                    <th><?= __('Default Front Sprite Url') ?></th>
+                    <td><?= h($pokemon->default_front_sprite_url) ?></td>
                 </tr>
                 <tr>
                     <th><?= __('Id') ?></th>

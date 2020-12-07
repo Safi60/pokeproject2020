@@ -21,7 +21,7 @@ class PokemonsFixture extends TestFixture
         'name' => ['type' => 'string', 'length' => 255, 'null' => false, 'default' => null, 'collate' => 'utf8_general_ci', 'comment' => '', 'precision' => null],
         'height' => ['type' => 'integer', 'length' => null, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
         'weight' => ['type' => 'integer', 'length' => null, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
-        'default_front_stripe_url' => ['type' => 'string', 'length' => 255, 'null' => false, 'default' => null, 'collate' => 'utf8_general_ci', 'comment' => '', 'precision' => null],
+        'default_front_sprite_url' => ['type' => 'string', 'length' => 255, 'null' => false, 'default' => null, 'collate' => 'utf8_general_ci', 'comment' => '', 'precision' => null],
         'created' => ['type' => 'datetime', 'length' => null, 'precision' => null, 'null' => false, 'default' => null, 'comment' => ''],
         'modified' => ['type' => 'datetime', 'length' => null, 'precision' => null, 'null' => false, 'default' => null, 'comment' => ''],
         '_constraints' => [
@@ -46,7 +46,7 @@ class PokemonsFixture extends TestFixture
                 'name' => 'Lorem ipsum dolor sit amet',
                 'height' => 1,
                 'weight' => 1,
-                'default_front_stripe_url' => 'Lorem ipsum dolor sit amet',
+                'default_front_sprite_url' => 'Lorem ipsum dolor sit amet',
                 'created' => '2020-11-05 21:35:47',
                 'modified' => '2020-11-05 21:35:47',
             ],

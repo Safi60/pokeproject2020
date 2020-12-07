@@ -30,7 +30,7 @@ class CreatePokemons extends AbstractMigration
             'limit' => 11,
             'null' => false,
         ]);
-        $table->addColumn('default_front_stripe_url', 'string', [
+        $table->addColumn('default_front_sprite_url', 'string', [
             'default' => null,
             'limit' => 255,
             'null' => false,

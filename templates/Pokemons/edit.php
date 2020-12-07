@@ -25,7 +25,7 @@
                     echo $this->Form->control('name');
                     echo $this->Form->control('height');
                     echo $this->Form->control('weight');
-                    echo $this->Form->control('default_front_stripe_url');
+                    echo $this->Form->control('default_front_sprite_url');
                 ?>
             </fieldset>
             <?= $this->Form->button(__('Submit')) ?>
