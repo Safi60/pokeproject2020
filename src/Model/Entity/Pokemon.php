@@ -34,4 +34,32 @@ class Pokemon extends Entity
         '*' => true,
         'id' => false,
     ];
+
+
+    /**
+     * Undocumented function
+     *
+     * @return string
+     */
+    protected function _getMainSprite()
+    {
+        return $this->default_front_sprite_url ? $this->default_front_sprite_url : 'unknown.png';
+    }
+
+    /**
+     * Return the first type for a pokemon
+     *
+     * @return string
+     */
+    protected function _getFirstType()
+    {
+        if (isset($this->pokemon_types) && !empty($this->pokemon_types)) {
+            \Cake\Log\Log::write('info', json_encode($this->pokemon_types));
+            return collection($this->pokemon_types)
+                ->extract('type.name')
+                ->first();
+        }
+
+        return 'normal';
+    }
 }

@@ -8,10 +8,8 @@
     <aside class="column">
         <div class="side-nav">
             <h4 class="heading"><?= __('Actions') ?></h4>
-            <?= $this->Html->link(__('Edit Pokemon'), ['action' => 'edit', $pokemon->id], ['class' => 'side-nav-item']) ?>
             <?= $this->Form->postLink(__('Delete Pokemon'), ['action' => 'delete', $pokemon->id], ['confirm' => __('Are you sure you want to delete # {0}?', $pokemon->id), 'class' => 'side-nav-item']) ?>
             <?= $this->Html->link(__('List Pokemons'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
-            <?= $this->Html->link(__('New Pokemon'), ['action' => 'add'], ['class' => 'side-nav-item']) ?>
         </div>
     </aside>
     <div class="column-responsive column-80">
@@ -37,6 +35,10 @@
                 <tr>
                     <th><?= __('Weight') ?></th>
                     <td><?= $this->Number->format($pokemon->weight) ?></td>
+                </tr>
+                <tr>
+                    <th><?= __('Pokedex Number') ?></th>
+                    <td><?= $this->Number->format($pokemon->pokedex_number) ?></td>
                 </tr>
                 <tr>
                     <th><?= __('Created') ?></th>

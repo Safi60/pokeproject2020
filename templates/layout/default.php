@@ -28,21 +28,36 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <?= $this->Html->meta('icon') ?>
 
     <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">
-
-    <?= $this->Html->css(['normalize.min', 'milligram.min', 'cake']) ?>
+    <script src="https://kit.fontawesome.com/7418e7179d.js" crossorigin="anonymous"></script>
+    <?= $this->Html->css(['style', 'milligram.min', 'cake', 'style']) ?>
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
 </head>
 <body>
-    <nav class="top-nav">
-        <div class="top-nav-title">
-            <a href="<?= $this->Url->build('/') ?>"><span>Cake</span>PHP</a>
-        </div>
-        <div class="top-nav-links">
-            <a target="_blank" rel="noopener" href="https://book.cakephp.org/4/">Documentation</a>
-            <a target="_blank" rel="noopener" href="https://api.cakephp.org/">API</a>
+    <nav class="container navbar navbar-expand-lg navbar-light bg-light">
+
+        <?= $this->Html->link(
+            $this->Html->image('Master-Ball-256.png', [
+                'height' => 64,
+                'width' => 64,
+            ]),
+            '/',
+            [
+                'class' => 'navbar-brand',
+                'escape' => false,
+            ]
+        ) ?>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <?= $this->Html->link(__('Pokemons'), ['controller' => 'Pokemons', 'action' => 'index'], ['class' => "nav-link"]) ?>
+                </li>
+            </ul>
         </div>
     </nav>
     <main class="main">
