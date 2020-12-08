@@ -114,7 +114,7 @@ Vous devrez donc créer un tableau de bord (Et mettre en place un lien vers celu
 
 -   Poids moyen des pokemons de la 4éme génération
 -   Nombre de pokemons de type fée entre les générations 1, 3 et 7.
--   Afficher le pokemon qui possède le plus de point de vie et le moins défense.
+-   Afficher les 10 premier pokemons qui possède la plus grande vitesse
 
 ## Les conseils de dernières minutes
 
