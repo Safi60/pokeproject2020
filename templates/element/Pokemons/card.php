@@ -5,9 +5,17 @@
     </div>
     
     <figcaption class="card__caption">
-        <h3 class="card__type">
-            <?= $pokemon->name ?>
+        <h1 class="card__name"><?= $pokemon->name ?></h1>
+
+        <h3 class="card__type <?= $pokemon->first_type ?>"">
+            <?= $pokemon->first_type ?>
         </h3>
+
+        <?php if ($pokemon->has_second_type) : ?>
+        <h3 class="card__second_type <?= $pokemon->second_type ?>">
+            <?= $pokemon->second_type ?>
+        </h3>
+        <?php endif ?>
 
         <table class="card__stats">
             <tbody>

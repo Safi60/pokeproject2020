@@ -54,12 +54,37 @@ class Pokemon extends Entity
     protected function _getFirstType()
     {
         if (isset($this->pokemon_types) && !empty($this->pokemon_types)) {
-            \Cake\Log\Log::write('info', json_encode($this->pokemon_types));
             return collection($this->pokemon_types)
                 ->extract('type.name')
                 ->first();
         }
 
         return 'normal';
+    }
+
+    /**
+     * Return the first type for a pokemon
+     *
+     * @return string
+     */
+    protected function _getSecondType()
+    {
+        if (isset($this->pokemon_types) && !empty($this->pokemon_types)) {
+            return collection($this->pokemon_types)
+                ->extract('type.name')
+                ->skip(1)
+                ->first();
+        }
+
+        return 'normal';
+    }
+
+    protected function _getHasSecondType()
+    {
+        if (isset($this->pokemon_types) && !empty($this->pokemon_types)) {
+            return collection($this->pokemon_types)->count() > 1;
+        }
+
+        return false;
     }
 }

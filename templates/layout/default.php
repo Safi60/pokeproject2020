@@ -66,7 +66,15 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             <?= $this->fetch('content') ?>
         </div>
     </main>
-    <footer>
+    <footer class="container">
+    <div class="row">
+        <div class="col-auto snorlax">
+            <?= $this->element('Footer/snorlax') ?>
+        </div>
+        <div class="col-auto text-center">
+                A sleeping Pokemon block the way !
+        </div>
+    </div>
     </footer>
 </body>
 </html>

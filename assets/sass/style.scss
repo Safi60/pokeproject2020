@@ -24,8 +24,10 @@ $theme-colors: (
 );
 
 @import "bootstrap/scss/bootstrap.scss";
+@import "Components/snorlax.scss";
 
 @import url("https://fonts.googleapis.com/css?family=Open+Sans|Open+Sans+Condensed:300,700");
+@import url(//db.onlinewebfonts.com/c/f4d1593471d222ddebd973210265762a?family=Pokemon);
 
 .card {
     display: inline-block;
@@ -55,7 +57,24 @@ $theme-colors: (
         right: 1em;
         transform: translateY(-50%);
         color: #ffffff;
-        text-transform: uppercase;
+        //text-transform: uppercase;
+        font-family: "Open Sans Condensed", "Open Sans", helvetica, sans-serif;
+        letter-spacing: 0.1em;
+        padding: 0.25em;
+        line-height: 1;
+        border-radius: 2px;
+        background: #bbbbbb;
+    }
+
+    &__second_type {
+        position: absolute;
+        top: 0;
+        left: 2em;
+        // transform: translateY(-50%);
+        // transform: translateX(-50%);
+        transform: translate(-50%, -50%);
+        color: #ffffff;
+        //text-transform: uppercase;
         font-family: "Open Sans Condensed", "Open Sans", helvetica, sans-serif;
         letter-spacing: 0.1em;
         padding: 0.25em;
@@ -73,7 +92,8 @@ $theme-colors: (
     }
 
     &__name {
-        font-family: "Open Sans Condensed", "Open Sans", helvetica, sans-serif;
+        font-family: "Pokemon", "Open Sans Condensed", "Open Sans", helvetica,
+            sans-serif;
         text-align: center;
         font-size: 1.5em;
         font-weight: 700;
@@ -108,7 +128,8 @@ $theme-colors: (
 
     box-shadow: 0px 5px 20px -10px #111111;
 
-    &--normal {
+    &--normal,
+    .normal {
         background: linear-gradient(110deg, #fdbb2d 0%, #3a1c71 100%);
         box-shadow: 0px 5px 20px -10px #3a1c71;
         .card__type {
@@ -116,14 +137,16 @@ $theme-colors: (
         }
     }
 
-    &--water {
+    &--water,
+    .water {
         background: linear-gradient(120deg, #1cb5e0 0%, #000851 100%);
         box-shadow: 0px 5px 20px -10px #000851;
         .card__type {
             background-color: #1cb5e0;
         }
     }
-    &--electric {
+    &--electric,
+    .electric {
         background: linear-gradient(
             90deg,
             rgba(255, 222, 0, 1) 34%,
@@ -133,7 +156,8 @@ $theme-colors: (
             background-color: #000;
         }
     }
-    &--fire {
+    &--fire,
+    .fire {
         background: linear-gradient(
             0deg,
             rgba(199, 24, 0, 1) 10%,
@@ -144,7 +168,8 @@ $theme-colors: (
         }
     }
 
-    &--psychic {
+    &--psychic,
+    .psychic {
         background: linear-gradient(
             140deg,
             rgba(255, 167, 249, 1) 0%,
@@ -156,7 +181,8 @@ $theme-colors: (
         }
     }
 
-    &--dark {
+    &--dark,
+    .dark {
         background: linear-gradient(
             20deg,
             rgba(25, 25, 25, 1) 0%,
@@ -167,7 +193,8 @@ $theme-colors: (
             background: #5c0249;
         }
     }
-    &--grass {
+    &--grass,
+    .grass {
         background: linear-gradient(
             140deg,
             rgba(196, 218, 61, 1) 0%,
@@ -180,7 +207,8 @@ $theme-colors: (
         }
     }
 
-    &--ice {
+    &--ice,
+    .ice {
         background: linear-gradient(
             230deg,
             rgba(202, 234, 246, 1) 0%,
@@ -192,7 +220,8 @@ $theme-colors: (
         }
     }
 
-    &--fairy {
+    &--fairy,
+    .fairy {
         background: linear-gradient(
             45deg,
             rgba(255, 230, 240, 1) 0%,
@@ -255,4 +284,13 @@ h5 {
         min-width: 180px;
         min-height: 180px;
     }
+}
+
+.footer-container {
+    margin: 0 auto;
+    max-width: 112rem;
+    padding: 0 2rem;
+    position: relative;
+    width: 100%;
+    margin-left: 0;
 }
