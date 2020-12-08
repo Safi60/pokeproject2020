@@ -46,11 +46,12 @@ class PokeApiShell extends Shell
     protected function _loadGeneration($from, $to)
     {
         for ($pokedexNumber = $from; $pokedexNumber <= $to; $pokedexNumber++) {
+            $pokeApiData = $this->_getPokemonById($pokedexNumber);
             if (!$this->Pokemons->exists(['pokedex_number' => $pokedexNumber])) {
-                $pokeApiData = $this->_getPokemonById($pokedexNumber);
-                $this->_savePokemon($pokeApiData);
+                $this->_createPokemon($pokeApiData);
             } else {
                 $this->verbose("The pokemon {$pokedexNumber} already exist in database");
+                $this->_updatePokemon($pokedexNumber, $pokeApiData);
             }
         }
     }
@@ -82,9 +83,33 @@ class PokeApiShell extends Shell
      * @param array $pokemonFormatedData formated data
      * @return void
      */
-    protected function _savePokemon($pokemonFormatedData)
+    protected function _createPokemon($pokemonFormatedData)
     {
         $pokemon = $this->Pokemons->newEntity($pokemonFormatedData);
+        if (!$this->Pokemons->save($pokemon)) {
+            $this->verbose('Something wrong happen');
+            \Cake\Log\Log::write('error', json_encode($pokemon->getErrors()));
+        }
+    }
+
+    /**
+     * Undocumented function
+     *
+     * @param int $pokedexNumber pokedex number
+     * @param array $pokemonFormatedData formated data
+     * @return void
+     */
+    protected function _updatePokemon($pokedexNumber, $pokemonFormatedData)
+    {
+        $pokemon = $this->Pokemons->find()
+                ->where(['pokedex_number' => $pokedexNumber])
+                ->contain([
+                    'PokemonStats.Stats',
+                    'PokemonTypes.Types',
+                ])
+                ->first();
+
+        $pokemon = $this->Pokemons->patchEntity($pokemon, $pokemonFormatedData);
         if (!$this->Pokemons->save($pokemon)) {
             $this->verbose('Something wrong happen');
             \Cake\Log\Log::write('error', json_encode($pokemon->getErrors()));
