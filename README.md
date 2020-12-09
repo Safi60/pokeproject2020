@@ -2,10 +2,10 @@
 
 
 (A renseigner)
-Groupe N° :
-Nom Prenom
-Nom Prenom
-Nom Prenom
+- Groupe N° :
+- Nom Prenom
+- Nom Prenom
+- Nom Prenom
 
 
 ## Récupération du projet
