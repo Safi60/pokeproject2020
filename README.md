@@ -1,5 +1,13 @@
 # Projet Web Iut Info module Web 2020
 
+
+(A renseigner)
+Groupe N° :
+Nom Prenom
+Nom Prenom
+Nom Prenom
+
+
 ## Récupération du projet
 
 Pour récuperer ce projet, vous pouvez le cloner grâce a la commande :
@@ -15,7 +23,7 @@ Voici la liste des tâches que vous devrez exécuter pour initialiser le projet 
 -   Créer une base de données (Attention à l'encodage en fonction de votre région / langue)
 -   Dupliquer le fichier `config/.env.example` et le renommer en `config/.env`
 -   Configurez toutes vos variables d'environnement dans ce fichier
--   Installez les dépendances du projet avec Composer
+-   Installez les dépendances du projet avec Composer (attention aux messages d'erreurs sous Windows)
 
 Pour les plus téméraires, vous pouvez également installé les dependances utile pour jouer avec Bootstrap avec la commande suivante :
 
@@ -128,5 +136,7 @@ Donc avant de faire du PHP, faites le en SQL et exécutez vos requettes directem
 ## Liens utiles
 
 PokeApi : https://pokeapi.co/api/v2/pokemon/25
+
 CakePhp CookBook : https://book.cakephp.org/4/en/index.html
+
 Discord : https://discord.gg/dJkXDdzF6G
