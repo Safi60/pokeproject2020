@@ -128,6 +128,8 @@ Vous devrez donc créer un tableau de bord (Et mettre en place un lien vers celu
 
 Parcourez l'application, vous découvrirez sont fonctionnement et peut être que certain bout de code pourrons vous aider.
 
+Utilisez la debug bar ! 
+
 La documentation est votre amie ! Lisez là .. Google est également jamais très loin pour vous donner des informations également.
 
 Avant de jouer avec l'ORM pour faire des requettes, rappelez vous ce qu'on à rapidement vue en cours : les fonctions de l'orm pour créer des requettes ressemble au final beaucoup à du SQL.
