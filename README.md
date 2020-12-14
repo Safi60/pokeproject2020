@@ -2,9 +2,8 @@
 
 
 (A renseigner)
-- Grou pe N° :2
+- Groupe N°:2
 - Hanifa Safi
-
 
 ## Récupération du projet
 
