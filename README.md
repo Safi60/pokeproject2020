@@ -2,10 +2,8 @@
 
 
 (A renseigner)
-- Groupe N° :
-- Nom Prenom
-- Nom Prenom
-- Nom Prenom
+- Grou pe N° :2
+- Hanifa Safi
 
 
 ## Récupération du projet
