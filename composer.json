@@ -38,8 +38,8 @@
     "scripts": {
         "post-install-cmd": [
             "App\\Console\\Installer::postInstall",
-            "bin/cake migrations migrate",
-            "bin/cake cache clear_all"
+            "bin\\cake migrations migrate",
+            "bin\\cake cache clear_all"
         ],
         "post-create-project-cmd": "App\\Console\\Installer::postInstall",
         "check": [
