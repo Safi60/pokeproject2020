@@ -55,8 +55,10 @@ $routes->scope('/', function (RouteBuilder $builder) {
      * its action called 'display', and we pass a param to select the view file
      * to use (in this case, templates/Pages/home.php)...
      */
-    $builder->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
-
+    //$builder->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
+    //changement d'url
+    //L'url localhost/ pointe vers localhost/pokemons mais le navigateur affiche localhost/
+    $builder->connect('/', ['controller' => 'pokemons', 'action' => 'index']);
     /*
      * ...and connect the rest of 'Pages' controller's URLs.
      */
