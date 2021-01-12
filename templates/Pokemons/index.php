@@ -7,6 +7,8 @@
 <div class="pokemons index content">
     <h3><?= __('Pokemons') ?></h3>
 
+    <h3> <?= $this->Html->link("Dashboard", ['action' => 'Dashboard']); ?> </h3>
+
     <div class="row">
         <?php foreach ($pokemons as $pokemon) : ?>
                 <div class="col-12 col-md-4 col-sm-6 col-xs-12">
